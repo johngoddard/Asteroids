@@ -1,5 +1,3 @@
-const Ship = require('./ship.js');
-
 function GameView(game, ctx) {
   this.game = game;
   this.ctx = ctx;
@@ -8,6 +6,7 @@ function GameView(game, ctx) {
 GameView.prototype.start = function () {
   let gameThis = this;
   this.bindKeyHandlers(this.game);
+  const img = new Image(600,600);
   setInterval( () => {
     gameThis.game.draw(gameThis.ctx);
     gameThis.game.step();
@@ -19,7 +18,11 @@ GameView.prototype.bindKeyHandlers = function (game) {
   key('s', function(){ game.ship.power([0, 1]) });
   key('a', function(){ game.ship.power([-1, 0]) });
   key('d', function(){ game.ship.power([1, 0]) });
-  key('f', function(){ game.ship.fireBullet() });
+  key('up', function(){ game.ship.power([0,-1]) });
+  key('down', function(){ game.ship.power([0, 1]) });
+  key('left', function(){ game.ship.power([-1, 0]) });
+  key('right', function(){ game.ship.power([1, 0]) });
+  key('space', function(){ game.ship.fireBullet() });
 };
 
 module.exports = GameView;

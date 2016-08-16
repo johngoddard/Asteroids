@@ -1,10 +1,5 @@
-const MovingObject = require('./moving_object.js');
-const Asteroid = require('./asteroid.js');
-const GameView = require('./game_view.js');
 const Game = require('./game.js');
-const Ship = require('./ship.js');
-const Util = require('./utils.js');
-const Bullet = require('./bullet.js');
+const GameView = require('./game_view.js');
 
 window.addEventListener('DOMContentLoaded', function(){
   let canvas = document.getElementById('game-canvas');
